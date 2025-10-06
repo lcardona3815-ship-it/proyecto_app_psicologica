@@ -1,0 +1,61 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage[backend=bibtex,style=numeric]{biblatex} % Cambiado a BibTeX
+\addbibresource{referencias.bib}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\DeclareUnicodeCharacter{2265}{$\geq$} % Soluciona el error del símbolo ≥
+
+\title{Aplicación móvil de apoyo psicológico en la Universidad Jorge Tadeo Lozano}
+\author{
+Luisa Brigith Garzón Martín \\ \texttt{luisab.garzonm@utadeo.edu.co} 
+\and 
+Laura Daniela Cardona Hoyos \\ \texttt{laurad.cardonah@utadeo.edu.co}
+}
+\date{29 de septiembre de 2025}
+
+\begin{document}
+\maketitle
+
+\section*{1. Resumen}
+Este proyecto propone una aplicación móvil en Android, desarrollada en Kotlin, para apoyar el bienestar psicológico de los estudiantes de la Universidad Jorge Tadeo Lozano. La aplicación permitirá a los usuarios realizar un check-in de su estado de ánimo mediante un breve texto y una escala simple. Usando un modelo de clasificación de texto ligero (Naive Bayes o Regresión Logística), se identificarán tres categorías: positivo, negativo o neutro. Según el resultado, la app recomendará actividades de respiración, contacto con Bienestar Universitario o ejercicios de relajación \cite{garcia2020appsalud,who2022mental}.
+
+\section*{2. Problema local y motivación}
+En Bogotá, los estudiantes universitarios enfrentan altos niveles de estrés por carga académica, transporte y factores personales. En la Universidad Jorge Tadeo Lozano, los tiempos de espera para atención psicológica pueden retrasar el apoyo temprano. Una aplicación sencilla que permita autoevaluarse y recibir orientación inmediata puede mejorar el bienestar, reducir ansiedad y servir como canal de acceso rápido a los servicios de la universidad \cite{utadeo2024bienestar}.
+
+\section*{3. Dataset válido}
+Se utilizarán los conjuntos de datos públicos TASS e ISEAR para entrenar el modelo de clasificación de emociones. Ambos contienen textos cortos en español asociados a emociones o polaridad (positivo, negativo, neutro) \cite{scherer1986isear,villena2013tass}.
+
+\section*{4. Tarea de IA}
+La tarea corresponde al área de Procesamiento de Lenguaje Natural (NLP) para clasificación de emociones en tres categorías: positiva, negativa o neutra \cite{manning2008introduction}.
+
+\section*{5. Algoritmo(s) propuesto(s)}
+Se usarán Naive Bayes y Regresión Logística con vectorización TF-IDF. Como alternativa futura, se planea comparar con BETO (BERT en español) \cite{jurafsky2023speech,gutierrez2021emociones}.
+
+\section*{6. Metodología y evaluación}
+Preprocesamiento: tokenización, eliminación de stopwords y normalización. División del dataset en 70/15/15. Evaluación con Accuracy, Precision, Recall y F1. Exportación del modelo a Android con TensorFlow Lite \cite{tensorflowlite2023}.
+
+\section*{7. Resultados esperados e hipótesis}
+Se espera obtener F1 $\geq$ 0.70 y demostrar que un modelo clásico puede identificar correctamente emociones básicas y recomendar actividades adecuadas \cite{smith2022mentalhealth}.
+
+\section*{8. Consideraciones éticas y riesgos}
+No se recopilarán datos personales ni se almacenarán textos. Se incluirá aviso legal aclarando que la app no reemplaza atención profesional. Riesgo principal: detección errónea de casos graves. Mitigación: botón de contacto directo con Bienestar Universitario \cite{who2022mental}.
+
+\section*{9. Alcance y cronograma}
+Semana 1: dataset y modelo. Semana 2: integración y pruebas. Semana 3: interfaz en Kotlin. Semana 4: documentación y entrega final.
+
+\section*{10. Roles del equipo}
+Luisa Brigith Garzón Martín: entrenamiento y validación del modelo.\\
+Laura Daniela Cardona Hoyos: desarrollo Android y diseño de interfaz.
+
+\printbibliography[title={Referencias}]
+
+\end{document}
